@@ -1,0 +1,93 @@
+### GET All
+GET localhost:3000/things
+
+### GET All
+GET localhost:3000/wings
+
+### GET ONE 1
+GET localhost:3000/things/1
+
+### GET ONE 1
+GET localhost:3000/wings/1
+
+### Duplicate - should fail
+POST localhost:3000/things
+content-type: application/json
+
+{
+  "id": 1,
+  "name": "Duplicate",
+  "t_size":22,
+  "weight": 22
+}
+
+### Legit - should pass
+POST localhost:3000/things
+content-type: application/json
+
+{
+  "id": 555,
+  "name": "Will Change",
+  "t_size":22,
+  "weight": 22
+}
+
+### Wrong Field Count - BAD REQ
+POST localhost:3000/things
+content-type: application/json
+
+{
+  "id": 555,
+  "name": "Will Change",
+  "t_size":22
+}
+### Legit - should pass
+POST localhost:3000/wings
+content-type: application/json
+
+{
+  "id": 555,
+  "name": "Will Change",
+  "type": "goat"
+}
+### Wrong field count - BAD REQ
+POST localhost:3000/wings
+content-type: application/json
+
+{
+  "id": 555,
+  "name": "Will Change"
+}
+### NOT FOUND
+PUT localhost:3000/things
+content-type: application/json
+
+{
+  "id": 32,
+  "name": "Doesn't exist - should not be PUT",
+  "t_size":22,
+  "weight": 22
+}
+
+### Legit - should pass
+PUT localhost:3000/things
+content-type: application/json
+
+{
+  "id": 555,
+  "name": "Changed",
+  "t_size": 22,
+  "weight": 44
+}
+
+### Removed Changed
+DELETE localhost:3000/things/555
+
+### Removed Changed
+DELETE localhost:3000/wings/555
+
+### NOT FOUND
+DELETE localhost:3000/things/555
+
+### BAD REQUEST
+DELETE localhost:3000/things/abcd
