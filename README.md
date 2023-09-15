@@ -42,4 +42,4 @@ An example use case could be an app that supports endpoints for:
     $ npm test
     $ npm start
 
-NOTE: The tests are wrecked. You're welcome to finish them!
+
