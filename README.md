@@ -38,8 +38,13 @@ An example use case could be an app that supports endpoints for:
 
 #### Running the project
 
-    $ npm install
-    $ npm test
-    $ npm start
-
+1. Load the [schema](./data/schema.sql) into the DB
+2. Load the [data](./data/data.sql) into the DB 
+   3. Alternatively, use the [mockTestData](./data/mockTestData.json)
+   4. You'll have to re-wicker the code
+3. Install & Start
+    - $ npm install
+    - $ npm test
+    - $ npm start
+4. Call the requests/URLs found in the [requests](./requests.http) file 
 
